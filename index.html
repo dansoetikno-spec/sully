@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SkyTec Live Rift Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero__profile">
+          <img id="profileIcon" class="profile-icon" alt="SkyTec profile icon">
+          <div>
+            <p class="eyebrow">NA live profile</p>
+            <h1><span id="gameName">SkyTec</span><span class="tag">#<span id="tagLine">NA1</span></span></h1>
+            <div class="status-row">
+              <span id="liveDot" class="dot"></span>
+              <span id="liveStatus">Checking live status...</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__rank">
+          <p class="eyebrow">Solo/Duo</p>
+          <div id="rankLine" class="rank-line">Loading rank</div>
+          <div id="rankMeta" class="rank-meta">Wins, losses, LP</div>
+        </div>
+      </section>
+
+      <section class="control-strip">
+        <button id="refreshButton" type="button">Refresh now</button>
+        <label>
+          Riot ID
+          <input id="riotIdInput" value="SkyTec#NA1" autocomplete="off">
+        </label>
+        <label>
+          Poll
+          <select id="pollSelect">
+            <option value="15000">15 sec</option>
+            <option value="30000" selected>30 sec</option>
+            <option value="60000">60 sec</option>
+          </select>
+        </label>
+        <span id="lastUpdated" class="last-updated">Waiting for first sync</span>
+      </section>
+
+      <section id="notice" class="notice" hidden></section>
+
+      <section class="grid">
+        <article class="panel span-4">
+          <div class="panel__head">
+            <h2>Rank Snapshot</h2>
+            <span id="queueBadge" class="badge">Ranked</span>
+          </div>
+          <div class="rank-card">
+            <div class="rank-emblem">
+              <img id="rankEmblem" alt="Rank emblem">
+            </div>
+            <div>
+              <div id="tierText" class="tier-text">Unranked</div>
+              <div id="lpText" class="subtle">0 LP</div>
+            </div>
+          </div>
+          <div class="meter">
+            <div id="winrateMeter" class="meter__fill"></div>
+          </div>
+          <div class="stats-row">
+            <div><strong id="winsText">0</strong><span>Wins</span></div>
+            <div><strong id="lossesText">0</strong><span>Losses</span></div>
+            <div><strong id="rankWinrateText">0%</strong><span>Winrate</span></div>
+          </div>
+        </article>
+
+        <article class="panel span-8">
+          <div class="panel__head">
+            <h2>Champion Pulse</h2>
+            <span id="sampleSize" class="badge">Recent matches</span>
+          </div>
+          <div id="championGrid" class="champion-grid"></div>
+        </article>
+
+        <article class="panel span-5">
+          <div class="panel__head">
+            <h2>Current Game</h2>
+            <span id="gameBadge" class="badge">Live check</span>
+          </div>
+          <div id="currentGame" class="current-game"></div>
+        </article>
+
+        <article class="panel span-7">
+          <div class="panel__head">
+            <h2>Recent Matches</h2>
+            <span class="badge">Fast form read</span>
+          </div>
+          <div id="matchList" class="match-list"></div>
+        </article>
+      </section>
+
+      <footer>
+        This personal dashboard uses Riot Games API data and Data Dragon assets. It is not endorsed by Riot Games and does not reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties.
+      </footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

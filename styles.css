@@ -1,0 +1,284 @@
+:root {
+  color-scheme: dark;
+  --bg: #090d12;
+  --panel: #111923;
+  --text: #eef5f8;
+  --muted: #8ea3ad;
+  --line: rgba(255,255,255,.1);
+  --good: #33d17a;
+  --great: #43b5ff;
+  --warn: #f6c453;
+  --bad: #ff6767;
+  --accent: #d6b15f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, Segoe UI, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(67,181,255,.18), transparent 28rem),
+    linear-gradient(135deg, #090d12 0%, #101720 48%, #17140f 100%);
+  color: var(--text);
+}
+
+.shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 32px;
+}
+
+.hero {
+  min-height: 260px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(9,13,18,.85), rgba(9,13,18,.34)),
+    url("https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jhin_5.jpg") center 35% / cover;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero__profile {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.profile-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 8px;
+  border: 2px solid rgba(214,177,95,.9);
+  background: #111;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1, h2, p { margin-top: 0; }
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(40px, 6vw, 78px);
+  line-height: .95;
+}
+
+.tag { color: var(--muted); font-size: .55em; }
+
+.status-row, .control-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--muted);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.08);
+}
+
+.dot.live { background: var(--good); box-shadow: 0 0 24px var(--good); }
+.dot.offline { background: var(--bad); }
+
+.hero__rank {
+  min-width: 260px;
+  padding: 18px;
+  background: rgba(9,13,18,.72);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.rank-line { font-size: 28px; font-weight: 900; }
+.rank-meta, .subtle, footer { color: var(--muted); }
+
+.control-strip {
+  flex-wrap: wrap;
+  margin: 14px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17,25,35,.86);
+}
+
+button, input, select {
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0d141c;
+  color: var(--text);
+  font: inherit;
+}
+
+button {
+  padding: 0 14px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #213448, #142230);
+  font-weight: 800;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+input { width: 150px; padding: 0 10px; }
+select { padding: 0 8px; }
+.last-updated { margin-left: auto; color: var(--muted); font-size: 13px; }
+
+.notice {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(246,196,83,.4);
+  border-radius: 8px;
+  background: rgba(246,196,83,.1);
+  color: #ffe4a0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.panel {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17,25,35,.9);
+  min-height: 220px;
+}
+
+.span-4 { grid-column: span 4; }
+.span-5 { grid-column: span 5; }
+.span-7 { grid-column: span 7; }
+.span-8 { grid-column: span 8; }
+
+.panel__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+h2 { margin-bottom: 0; font-size: 18px; }
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(214,177,95,.14);
+  color: #f4d58b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.rank-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.rank-emblem {
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 96px;
+}
+
+.rank-emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(67,181,255,.34));
+}
+
+.tier-text { font-size: 24px; font-weight: 900; }
+.meter { height: 10px; border-radius: 999px; background: #0b1118; overflow: hidden; }
+.meter__fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--bad), var(--warn), var(--good)); }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.stats-row div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255,255,255,.03);
+}
+
+.stats-row strong { display: block; font-size: 22px; }
+.stats-row span { color: var(--muted); font-size: 12px; }
+
+.champion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+.champion-card, .match-item, .game-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--muted);
+  border-radius: 6px;
+  background: rgba(255,255,255,.035);
+}
+
+.champion-card.good { border-left-color: var(--good); }
+.champion-card.great { border-left-color: var(--great); }
+.champion-card.warn { border-left-color: var(--warn); }
+.champion-card.bad { border-left-color: var(--bad); }
+
+.champion-card img, .match-item img, .game-line img {
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+}
+
+.card-title { font-weight: 900; }
+.card-meta { color: var(--muted); font-size: 13px; }
+
+.match-list, .current-game { display: grid; gap: 10px; }
+.match-item.win { border-left-color: var(--good); }
+.match-item.loss { border-left-color: var(--bad); }
+.match-spacer { margin-left: auto; text-align: right; }
+
+footer {
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 850px) {
+  .hero { align-items: start; flex-direction: column; padding: 22px; }
+  .hero__profile { align-items: flex-start; }
+  .profile-icon { width: 72px; height: 72px; }
+  .hero__rank { width: 100%; }
+  .span-4, .span-5, .span-7, .span-8 { grid-column: 1 / -1; }
+  .last-updated { margin-left: 0; width: 100%; }
+}
