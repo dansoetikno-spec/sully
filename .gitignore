@@ -1,0 +1,5 @@
+.riot-api-key
+.env
+.env.local
+.vercel
+.server.*.log
